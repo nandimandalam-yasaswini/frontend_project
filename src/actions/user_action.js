@@ -7,14 +7,12 @@ export const registerUser = (user) => async dispatch => {
 
     try {
         const res = await axios.post("/api/users/signup", user);
-        console.log(roll_no);
         console.log(res)
         dispatch({
             type: 'USER_REGISTER_SUCCESS'
 
         })
     } catch (error) {
-        console.log(roll_no);
         dispatch({
             type: 'USER_REGISTER_FAILED',
             payload: error
