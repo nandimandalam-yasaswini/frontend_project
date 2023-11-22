@@ -28,6 +28,7 @@ export const loginUser = (user) => async dispatch => {
     try {
         const res = await axios.post("/api/users/signin", user);
         console.log(res)
+
         dispatch({
             type: 'USER_LOGIN_SUCCESS',
             payload: res.data
@@ -36,6 +37,7 @@ export const loginUser = (user) => async dispatch => {
         localStorage.setItem('currentUser', JSON.stringify(res.data));
         window.location.href = "/dashboard";
     } catch (error) {
+        console.log(error);
         dispatch({
             type: 'USER_LOGIN_FAILED',
             payload: error
