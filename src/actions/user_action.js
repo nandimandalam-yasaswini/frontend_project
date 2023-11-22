@@ -38,6 +38,7 @@ export const loginUser = (user) => async dispatch => {
         localStorage.setItem('currentUser', JSON.stringify(res.data));
         window.location.href = "/dashboard";
     } catch (error) {
+        console.log(error);
         dispatch({
             type: 'USER_LOGIN_FAILED',
             payload: error
